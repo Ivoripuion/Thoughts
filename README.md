@@ -1,8 +1,12 @@
-﻿# some notes and thoughts
+# some notes and thoughts
 
 ## 2019-8-21
 
-* 最近在整理以前写的exp，陆续push上来
+
+
+## 2019-7-11
+
+* 更新了一些web的笔记思路
 
 ## 2019-6-30
 
@@ -11,4 +15,3 @@
 ## 2019-2-26
 
 * 更新了简单使用gdb的思路
-
