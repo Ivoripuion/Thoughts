@@ -1,5 +1,9 @@
 # some notes and thoughts
 
+## 2019-8-25
+
+* 上传了一些pwn笔记
+
 ## 2019-8-21
 
 * 最近在整理以前写的一些exp，陆续push一些上来
