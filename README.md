@@ -1,4 +1,4 @@
-# some notes and thoughts
+# some notes and thoughts about CTF
 
 ## 2019-8-25
 
