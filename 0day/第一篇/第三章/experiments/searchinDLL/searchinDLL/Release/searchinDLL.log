@@ -1,0 +1,6 @@
+﻿  main.cpp
+main.cpp(7): warning C4101: “address”: 未引用的局部变量
+  正在生成代码
+  All 5 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  searchinDLL.vcxproj -> F:\ctf-wiki\0day2\第一篇\第三章\experiments\searchinDLL\Release\searchinDLL.exe
