@@ -74,7 +74,7 @@ lea edi,[esi-0xC]
 |raw_ret_addr-0x08|0x0c917432，此时esp指向这里|
 |raw_ret_addr-0x04|0x4fd18963|
 |raw_ret_addr|0x1e380a6a|
-|raw_ret_addr+0x04|shellcode开始四个字节|
+|raw_ret_addr+0x04|shellcode开始四个字节|  
 抬高栈桢，保护shellcode：
 ```
 xor ebx,ebx
