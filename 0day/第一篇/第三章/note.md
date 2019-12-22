@@ -8,7 +8,7 @@
 
 ## 3.2.3 experiment
 使用程序找出进程中的user32.dll中的jmp esp的指令的地址：
-![jmpesp](./jmpesp_addr.JPG)
+![jmpesp](./jmpesp_addr.JPG)  
 这里使用0x77d8625f这个地址构造exp（到底使用哪一个其实需要测试一下，我第一次测试不对，第二次使用该地址就可以了）。  
 然后根据实验需求，我们需要在弹窗结束后正常退出，即在最后加上这么一段：
 ```
@@ -74,7 +74,7 @@ lea edi,[esi-0xC]
 |raw_ret_addr-0x08|0x0c917432，此时esp指向这里|
 |raw_ret_addr-0x04|0x4fd18963|
 |raw_ret_addr|0x1e380a6a|
-|raw_ret_addr+0x04|shellcode开始四个字节|
+|raw_ret_addr+0x04|shellcode开始四个字节|  
 抬高栈桢，保护shellcode：
 ```
 xor ebx,ebx
