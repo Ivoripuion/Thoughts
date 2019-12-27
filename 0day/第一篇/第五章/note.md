@@ -1,5 +1,5 @@
 
-0.# notes about chapter 5
+# notes about chapter 5
 ## from 5.1
 堆的一些特征：
 1. 堆是一种在程序运行时动态分配的内存。动态内存即是程序设计时不能预先决定的，需要在程序时用户给出。
