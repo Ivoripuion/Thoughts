@@ -29,3 +29,29 @@
 此时的virtual表的函数为：
 
 ![GS_4](./GS_4.JPG)
+
+继续覆盖20个字节的\x90，就可以看到虚表指针的最后一个字节已经被结束符"\0"覆盖掉了，指向了缓冲区的起始地址（0x00402100）。
+
+![GS_5](./GS_5.JPG)
+
+之后我们要做的就是使得call eax之后，会执行shellcode。这里初始的思路就是将虚函数指针指向的shellcode起始地址写成0x00402104，这样就会在执行虚函数时执行地址之后的shellcode。尝试之后不行，因为在call的结束之后会有ret操作。所以的操作实际应该是针对栈内的一段shellcode，也就是buff参数。要跳转到对应的shellcode的思路就是：在call完毕，ret指令后，返回到shellcode的地址即可。这里就是：
+```
+pop
+pop
+ret
+```
+即可，第一个将call压入的eip弹出，第二个pop将原先栈顶的弹出，ret后将buff的起始地址弹出给了eip：
+
+![GS_6](./GS_6.JPG)
+
+这里有个需要说明的：当从buff开始执行的时候，buff起始的地址（也就是pop pop ret指令的地址）当作指令执行时不会有异常发生，所以可以继续顺序执行。
+
+使用前面的searchdll来找到gadgets：
+
+![GS_7](./GS_7.JPG)
+
+这里测试时0x7c921db0是可以用的。
+
+测试结果：
+
+![success1](./success1.JPG)
