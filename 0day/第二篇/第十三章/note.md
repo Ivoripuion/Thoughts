@@ -73,6 +73,6 @@ Log data, 条目 742
 
 使用第一个"\x1C\x14"即可。
 
-![](./success.JPG)
+![](./success1.JPG)
 
 ## 13.4  利用 Heap spray 技术定位内存地址
